@@ -15,7 +15,6 @@ import model.User;
 
 public class UserDAO extends DBContext {
     public User getUserById(int userId) {
-        
         String sql = "select * from Customers\n"
                 + "where customerID = ?";
         try {
