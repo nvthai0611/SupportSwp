@@ -16,6 +16,9 @@ public class User {
     private String address;
     private String fullname;
 
+    public User() {
+    }
+
     public User(int customerId, String userName, String passWord, String status, String imgUrl, String phone, String email, String address, String fullname) {
         this.customerId = customerId;
         this.userName = userName;

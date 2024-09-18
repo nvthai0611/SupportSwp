@@ -75,7 +75,8 @@ public class ChangePassword extends HttpServlet {
             throws ServletException, IOException {
         UserDAO dao = new UserDAO();
         HttpSession session = request.getSession();
-        User account = (User) session.getAttribute("account");
+        User account = new User();
+        account.setCustomerId(2);
         User user = dao.getUserProfile(account.getUserId());
 
         String currentPassword = request.getParameter("current_password");
