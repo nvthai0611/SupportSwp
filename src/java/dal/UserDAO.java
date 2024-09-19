@@ -63,6 +63,20 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public void updatePassword(String password, int userId) {
+        String sql = "UPDATE [dbo].[Customers]\n"
+                + "   SET [password] = ?\n"
+                + "     \n"
+                + " WHERE customerID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, password);
+            ps.setInt(2, userId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public static void main(String[] args) {
         UserDAO u = new UserDAO();
         User check = u.getUserById(1);

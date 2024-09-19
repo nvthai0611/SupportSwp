@@ -67,6 +67,28 @@ public class ChangePassword extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          UserDAO dao = new UserDAO();
+          User user = dao.getUserById(3);
+          HttpSession session = request.getSession();
+          String currenPassword = request.getParameter("current_password");
+          String newPassword = request.getParameter("new_password");
+          String confirmNewPass = request.getParameter("confirm_password");
+          //sai mat khau hien tai
+          if(user.getPassWord() != currenPassword ){
+              session.setAttribute("errCurrentPassword", "Curren password is wrong!!!");
+              response.sendRedirect(request.getContextPath() + "/home");
+              return;
+          }
+          //mat khau moi va confirm sai
+          if(!newPassword.equals(confirmNewPass)){
+              session.setAttribute("errConfirmPass", "New password and confirm password is not match!!!");
+              response.sendRedirect(request.getContextPath() + "/home");
+              return;
+          }
+          
+          dao.updatePassword(newPassword, 3);
+          session.setAttribute("Success", "Change password success!!!");
+          response.sendRedirect(request.getContextPath() + "/home");
           
     }
 }
