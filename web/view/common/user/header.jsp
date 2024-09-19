@@ -238,6 +238,7 @@
 
                                                                         <ul class="flat-unstyled">
                                                                             <li class="account">
+                                                                                <a href="home"  >Gui du lieu</a>
                                                                                 <a href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                                                                                 <a href="#" title="">My Account<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                                                 <ul class="unstyled">  
@@ -443,21 +444,21 @@
                                                                             <input  type="text" class="form-control" id="pwd" name="Phone" value="${o.phoneNumber}">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="pwd">Gender:</label>
+<!--                                                                            <label for="pwd">Gender:</label>
                                                                             <label for="male">Male</label>
                                                                             <input type="radio" name="gender" id="male" value="male"  ${o.gender == 1 ? "checked" : ""} >  
                                                                                 <label>       </label>                   
                                                                                 <label for="female">Female</label>
-                                                                                <input type="radio" name="gender" id="female" value="female"  ${o.gender == 0 ? "checked" : ""}>
+                                                                                <input type="radio" name="gender" id="female" value="female"  ${o.gender == 0 ? "checked" : ""}>-->
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <label for="pwd">Address:</label>
                                                                                         <input  type="text" class="form-control" id="pwd" name="address" value="${o.address}">
                                                                                     </div>
-                                                                                    <div class="form-group">
+<!--                                                                                    <div class="form-group">
                                                                                         <label for="pwd">Date of birth:</label>
                                                                                         <input  type="date" class="form-control" id="pwd" name="dateofbirth" value="${o.dateOfBirth}">
-                                                                                    </div>
+                                                                                    </div>-->
                                                                                     <button type="submit" class="btn btn-default submitprofile">Submit</button>
                                                                                     </div>
                                                                                     </form>                                          

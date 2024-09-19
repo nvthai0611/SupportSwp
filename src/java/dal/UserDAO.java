@@ -14,6 +14,7 @@ import java.util.List;
 import model.User;
 
 public class UserDAO extends DBContext {
+
     public User getUserById(int userId) {
         String sql = "select * from Customers\n"
                 + "where customerID = ?";
@@ -22,7 +23,7 @@ public class UserDAO extends DBContext {
             ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String userName  = rs.getString("userName");
+                String userName = rs.getString("userName");
                 String password = rs.getString("password");
                 String status = rs.getString("status");
                 String imgUrl = rs.getString("img_url");
@@ -38,6 +39,30 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
+
+    public void updateProfile(String img, String phone, String email, String address, String fullName, int userId) {
+        String sql = "UPDATE [dbo].[Customers]\n"
+                + "   SET "
+                + "     [img_url] = ?\n"
+                + "      ,[phone] = ?\n"
+                + "      ,[email] = ?\n"
+                + "      ,[address] = ?\n"
+                + "      ,[fullName] = ?\n"
+                + " WHERE customerID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, img);
+            ps.setString(2, phone);
+            ps.setString(3, email);
+            ps.setString(4, address);
+            ps.setString(5, fullName);
+            ps.setInt(6, userId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Loi updateProfile");
+        }
+    }
+
     public static void main(String[] args) {
         UserDAO u = new UserDAO();
         User check = u.getUserById(1);
